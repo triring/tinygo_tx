@@ -5,7 +5,10 @@ Raspberry Pi Pico を小さな放送局にするプログラムです。
 10cm程度のジャンパー線があればOK、ハードの改造は不要です。  
 AMラジオで音楽を聞くことができます。  
 
-![PICO-GP13](images/pico-pinout_GP13.png "PICO-GP13")
+![DSCN9437_800_600.jpg](photo/DSCN9437_800_600.jpg "DSCN9437_800_600.jpg")
+
+写真は、Raspberry Pi Pico と同じRP2040チップを搭載したマイコンボード[RP2040-Zero](https://www.waveshare.com/wiki/RP2040-Zero)で作られたマイクロパッド[zero-kb02](https://github.com/sago35/tinygo_keeb_workshop_2024/blob/main/buildguide.md)
+です。互換品なので、デモ用に使用しました。
 
 ## DEMO
 
@@ -15,7 +18,7 @@ AMラジオで音楽を聞くことができます。
 
 *AM transmitter* は、PWMで中波帯の微弱電波を生成し、送信します。  
 ハードの改造は不要です。PWM出力が可能なGPIO端子に、10cm程度の導電線を接続するだけで、AMラジオから音楽や効果音が流れます。  
-特に実用的な用途や技術的な意義はありません。デモなどに利用して下さい。
+特に実用性や技術的な意義はありません。デモなどに利用して下さい。
 
 ## Requirement
 
@@ -25,7 +28,7 @@ AMラジオで音楽を聞くことができます。
 
 ### Hardware
 
-* Raspberry Pi Pico、または、RP2040を搭載した互換マイコンボード
+* Raspberry Pi Pico、または、RP2040を搭載した互換品のマイコンボード
 * 10cm程度の導電線(ジャンパーケーブル等)
 * 中波放送(AMラジオ放送)のAM波(526.5～1606.5kHz)を受信できるラジオ
 
@@ -45,9 +48,9 @@ cd AMtransmitter
 ```
 ## Usage
 
-1. Raspberry Pi Picoの17Pin(GPIO13)に、10cm程度の長さのジャンパーケーブルを接続してください。
+1. Raspberry Pi Picoの20Pin(GPIO15)に、長さが10cm程度のジャンパーケーブルを接続してください。
 
-![PICO-GP13](images/pico-pinout_GP13.png "PICO-GP13")
+![PICO-GP15](images/pico-pinout_GP15.png "PICO-GP15")
 
 2. AMラジオの電源を入れ、周波数を999KHzに合わせてください。
 
@@ -57,6 +60,7 @@ cd AMtransmitter
 ```bash
 > tree /a /f ./uf2
 +---effects
+|       CTUringtone
 |       Jihou.uf2
 |       PiPo.uf2
 |       ThiroriSound.uf2
@@ -76,11 +80,13 @@ cd AMtransmitter
 
 ## Compile
 
-今回のプログラムは、Raspberry Pi Picoの17Pin(GPIO13)をアンテナ出力に設定することを前提として作成しています。  
+今回のプログラムは、Raspberry Pi Picoの20Pin(GPIO15)をアンテナ出力に設定することを前提として作成しています。  
 これ以外のGPIOを使用する場合は、以下のディレクトリにあるmain.goファイルの設定を書き換える必要があります。  
 
 ```bash
 > tree /a /f effects
++---CTUringtone
+|       main.go
 +---Jihou
 |       main.go
 +---PiPo
@@ -113,8 +119,8 @@ cd AMtransmitter
 設定を変更するmain.goファイルを開き、func main()の先頭部分のpinとpwmの定義部分を探して下さい。  
 
 ```bash
-	pin := machine.GPIO13
-	pwm := machine.PWM6 
+	pin := machine.GPIO15
+	pwm := machine.PWM7 
 ```
 
 2. 変更内容  
@@ -140,7 +146,8 @@ cd AMtransmitter
 
 4. 実行  
 コンパイルが完了すると、uf2/music/KimiGaYo.uf2 というファイルが作られます。これを、Raspberry Pi Pico に書き込んで下さい。  
-AMラジオを999KHzにチューニングして、音楽が聞こえてきたら成功です。  
+AMラジオを999KHzにチューニングして、アンテナ線の近くに置いて下さい。  
+音楽が聞こえてきたら成功です。  
 その他のプロジェクトのコンパイルに関しては、build.shを御覧ください。  
 
 ## Note
@@ -154,7 +161,8 @@ main.go ファイルの以下の定義部分です。
 var period uint64 = uint64(1000000000 / 999000)
 ```
 
-AM放送の周波数帯では、9kHz間隔で割り振られています。この周波数に適合する波長を生成できるPWMの設定を調べたところ、誤差が少なかったのは以下の4つの周波数でした。  
+AM放送の周波数帯では、それぞれの放送局に割り当てられる周波数は、9kHz間隔で割り振られています。  
+この周波数に適合する波長を生成できるPWMの設定を調べたところ、誤差が少なかったのは以下の4つの周波数でした。  
 
 ```bash
 1000000000	/	693000	=	1443.001443
@@ -163,7 +171,8 @@ AM放送の周波数帯では、9kHz間隔で割り振られています。こ�
 1000000000	/	1548000	=	645.994832
 ```
 
-最近の市販ラジオは、電波の周波数を選局、電波から音声を取り出す検波、復調といった一連の受信処理を全てデジタルで行うDSPラジオが主流です。正確な周波数で送信しないとDSPラジオは受信してくれません。  
+最近の市販ラジオは、電波の周波数を選局、電波から音声を取り出す検波、復調といった一連の受信処理を全てデジタルで行うDSPラジオが主流です。  
+正確な周波数で送信しないとDSPラジオは受信してくれません。  
 必要に応じて、上記の周波数の中から適切なものを選び、period に設定してから、コンパイルして下さい。  
 なお、同調回路がコイルとバリコンで構成された昔ながらのアナログラジオであれば、周波数の設定に気を使う必要はありません。  
 
@@ -196,11 +205,12 @@ var period uint64 = uint64(1000000000 / 999000)
 var Song_BPM float64 = 120.0 // 楽曲のテンポ
 ```
 
-
 * Repetitionsの設定
     * 1度だけの演奏は1を設定する。
     * 繰り返して演奏する場合は、その回数を設定する。
     * 永久に演奏を繰り返す場合は0を設定する。
+    以下は、5回繰り返して演奏する設定  
+
 ```bash
 var Repetitions int = 5      // 繰返しの回数,0と定義すると、無限ループになり、永久に演奏を繰り返す。
 ```
@@ -209,21 +219,28 @@ var Repetitions int = 5      // 繰返しの回数,0と定義すると、無限�
 
 NewMusic/NewMusic.go 内のNotes配列に、楽譜データを書き込んで下さい。  
 音階、音長の2つを1組として書き込んでいきます。休符は、Rです。  
-音階、音長の定義は、note.goを御覧ください。  
+音階、音長の定義は、note.goを参照ください。  
 
 ```bash
 // 楽譜データ
 var Notes = []Note{
-	{C4, L4}, // ド
-	{D4, L4}, // レ
-	{E4, L4}, // ミ
-	{F4, L4}, // ファ
-	{G4, L4}, // ソ
-	{A4, L4}, // ラ
-	{B4, L4}, // シ
-	{C5, L2}, // ド
-	{R, L1},  // 休符
+	{C4, L4}, // ド,　4分音符
+	{D4, L4}, // レ,　4分音符
+	{E4, L4}, // ミ,　4分音符
+	{F4, L4}, // ファ,4分音符
+	{G4, L4}, // ソ,　4分音符
+	{A4, L4}, // ラ,　4分音符
+	{B4, L4}, // シ,　4分音符
+	{C5, L2}, // ド,　2分音符
+	{R, L1},  // 全休符
 }
+```
+
+4. コンパイル
+以下のコマンドでコンパイルして下さい。
+
+```bash
+tinygo build -o [出力するuf2ファイル名] -target=pico -size short ./[ソースコードが格納されたディレクトリ名]
 ```
 
 ## Author
@@ -233,6 +250,7 @@ var Notes = []Note{
 ## License
 
 ### 基本ライセンス  
+
 *AM transmitter* is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
 
 ### 追加ライセンス
@@ -249,4 +267,4 @@ Copyright (c) 2024 Akio MIWA @triring
 
 このファイルは、<akio@triring.net> が書きました。あなたがこの条文を載せている限り、あなたはソフトウェアをどのようにでも扱うことができます。
 もし、いつか私達が出会った時、あなたがこのソフトに価値があると感じたなら、見返りとして私にビールを奢ることができます。  
-Copyright (c) 2024 Akio MIWA @triring  
+Copyright (c) 2025 Akio MIWA @triring  
