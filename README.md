@@ -5,10 +5,10 @@ Raspberry Pi Pico を小さな放送局にするプログラムです。
 10cm程度のジャンパー線があればOK、ハードの改造は不要です。  
 AMラジオで音楽を聞くことができます。  
 
-![DSCN9437_800_600.jpg](photo/DSCN9437_800_600.jpg "DSCN9437_800_600.jpg")
+![DSCN9437_800x600.jpg](photo/DSCN9437_800x600.jpg "DSCN9437_800x600.jpg")
 
 写真は、Raspberry Pi Pico と同じRP2040チップを搭載したマイコンボード[RP2040-Zero](https://www.waveshare.com/wiki/RP2040-Zero)で作られたマイクロパッド[zero-kb02](https://github.com/sago35/tinygo_keeb_workshop_2024/blob/main/buildguide.md)
-です。互換品なので、デモ用に使用しました。
+です。機能的には互換品なのでデモ用として使用しました。
 
 ## DEMO
 
@@ -18,7 +18,8 @@ AMラジオで音楽を聞くことができます。
 
 *AM transmitter* は、PWMで中波帯の微弱電波を生成し、送信します。  
 ハードの改造は不要です。PWM出力が可能なGPIO端子に、10cm程度の導電線を接続するだけで、AMラジオから音楽や効果音が流れます。  
-特に実用性や技術的な意義はありません。デモなどに利用して下さい。
+特に実用性や技術的な意義はありません。  
+校歌や社歌のデータを入力し、デモやネタとして使って下さい。  
 
 ## Requirement
 
@@ -48,11 +49,19 @@ cd AMtransmitter
 ```
 ## Usage
 
-1. Raspberry Pi Picoの20Pin(GPIO15)に、長さが10cm程度のジャンパーケーブルを接続してください。
+1. Raspberry Pi Picoの20Pin(GPIO15)に、長さ10cm程度のジャンパーケーブルを接続してください。
 
 ![PICO-GP15](images/pico-pinout_GP15.png "PICO-GP15")
 
+![antenna](photo/DSCN9444_800x600.jpg "antenna")
+
+写真はRP2040チップを搭載したマイコンボード[RP2040-Zero](https://www.waveshare.com/wiki/RP2040-Zero)で作られたマイクロパッド[zero-kb02](https://github.com/sago35/tinygo_keeb_workshop_2024/blob/main/buildguide.md)の拡張ポートのGPIO15に差し込まれた
+アンテナ用のジャンパーワイヤー  
+
 2. AMラジオの電源を入れ、周波数を999KHzに合わせてください。
+
+
+![ラジオ 999KHz](photo/DSCN9441_radio999.jpg "ラジオ 999KHz")  
 
 3. uf2ディレクトリ内にある 任意のuf2ファイルをRaspberry Pi Picoに書き込んで下さい。
 ラジオから楽曲や効果音が聞こえるはずです。
@@ -209,10 +218,12 @@ var Song_BPM float64 = 120.0 // 楽曲のテンポ
     * 1度だけの演奏は1を設定する。
     * 繰り返して演奏する場合は、その回数を設定する。
     * 永久に演奏を繰り返す場合は0を設定する。
+
     以下は、5回繰り返して演奏する設定  
 
 ```bash
-var Repetitions int = 5      // 繰返しの回数,0と定義すると、無限ループになり、永久に演奏を繰り返す。
+// 繰返しの回数,0と定義すると、無限ループになり、永久に演奏を繰り返す。
+var Repetitions int = 5
 ```
 
 3. 楽譜データ  
@@ -236,12 +247,24 @@ var Notes = []Note{
 }
 ```
 
-4. コンパイル
+4. コンパイル  
 以下のコマンドでコンパイルして下さい。
 
 ```bash
 tinygo build -o [出力するuf2ファイル名] -target=pico -size short ./[ソースコードが格納されたディレクトリ名]
 ```
+
+## warning
+
+**- 警告 -**
+
+このシステムで、以下のような事をしてはいけません。
+
+* 送信出力を上げる。
+* 大きなアンテナに接続する。
+
+3mの距離における電界強度が、500μV/mを上回ると電波法違反になります。
+あくまでも、「マイコンボードの近くにAMラジオを置いたら、ノイズが聞こえた。」くらいの範囲で運用して下さい。
 
 ## Author
 

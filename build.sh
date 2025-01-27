@@ -10,11 +10,11 @@ tinygo build -o uf2/music/Ode_to_Joy.uf2         -target=pico -size short ./musi
 tinygo build -o uf2/music/ShortShorts.uf2        -target=pico -size short ./music/ShortShorts
 tinygo build -o uf2/music/WelcomeJapariPark.uf2  -target=pico -size short ./music/WelcomeJapariPark
 
+tinygo build -o uf2/effects/CTUringtone.uf2       -target=pico -size short ./effects/CTUringtone
 tinygo build -o uf2/effects/Jihou.uf2             -target=pico -size short ./effects/Jihou
 tinygo build -o uf2/effects/PiPo.uf2              -target=pico -size short ./effects/PiPo
 tinygo build -o uf2/effects/ThiroriSound.uf2      -target=pico -size short ./effects/ThiroriSound
 tinygo build -o uf2/effects/Ultraman.uf2          -target=pico -size short ./effects/Ultraman
 tinygo build -o uf2/effects/WestminsterChimes.uf2 -target=pico -size short ./effects/WestminsterChimes
-tinygo build -o uf2/effects/CTUringtone.uf2       -target=pico -size short ./effects/CTUringtone
 
 # pandoc README.md -o README.html
