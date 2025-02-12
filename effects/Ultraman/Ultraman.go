@@ -1,13 +1,12 @@
 package main
 
-import "fmt"
-
-func Title() {
-	fmt.Printf("Ultraman color timer")
+func getTitle() string {
+	return Title
 }
 
-var Song_BPM float64 = 600.0 // 楽曲のテンポ
-var Repetitions int = 20     // 繰返しの回数,0と定義すると、無限ループになり、永久に演奏を繰り返す。
+const Title string = "Ultraman color timer" // 効果音名
+var Song_BPM float64 = 600.0                // 楽曲のテンポ
+var Repetitions int = 20                    // 繰返しの回数,0と定義すると、無限ループになり、永久に演奏を繰り返す。
 
 // ピッポォーン,ピッポォーン,ピッポォーン
 // ピッ音	高音シ 5B 988Hz	0.085sec

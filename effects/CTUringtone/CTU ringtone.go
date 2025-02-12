@@ -1,12 +1,11 @@
 package main
 
-import "fmt"
-
-func Title() {
-	fmt.Printf("24 TWENTY-FOUR CTU ringtone")
+func getTitle() string {
+	return Title
 }
 
-var Song_BPM float64 = 95 // 楽曲のテンポ
+const Title string = "24 TWENTY-FOUR CTU ringtone" // 効果音名
+var Song_BPM float64 = 95                          // 楽曲のテンポ
 
 var Repetitions int = 10 // 繰返しの回数,0と定義すると、無限ループになり、永久に演奏を繰り返す。
 

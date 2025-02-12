@@ -1,13 +1,12 @@
 package main
 
-import "fmt"
-
-func Title() {
-	fmt.Printf("Ode to Joy")
+func getTitle() string {
+	return Title
 }
 
-var Song_BPM float64 = 120.0 // 楽曲のテンポ
-var Repetitions int = 1      // 繰返しの回数,0と定義すると、無限ループになり、永久に演奏を繰り返す。
+const Title string = "Ode to Joy" // 楽曲名
+var Song_BPM float64 = 120.0      // 楽曲のテンポ
+var Repetitions int = 1           // 繰返しの回数,0と定義すると、無限ループになり、永久に演奏を繰り返す。
 
 // 楽譜データ
 // TITLE:Ode to Joy

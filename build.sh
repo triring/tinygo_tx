@@ -1,4 +1,4 @@
-# go mod init AMtransmitter
+# go mod init tinygo_tx
 mkdir uf2
 mkdir uf2/music
 mkdir uf2/effects

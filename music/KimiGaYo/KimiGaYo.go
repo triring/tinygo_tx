@@ -1,13 +1,12 @@
 package main
 
-import "fmt"
-
-func Title() {
-	fmt.Printf("KimiGaYo")
+func getTitle() string {
+	return Title
 }
 
-var Song_BPM float64 = 45.0 // 楽曲のテンポ
-var Repetitions int = 1     // 繰返しの回数,0と定義すると、無限ループになり、永久に演奏を繰り返す。
+const Title string = "KimiGaYo" // 楽曲名
+var Song_BPM float64 = 45.0     // 楽曲のテンポ
+var Repetitions int = 1         // 繰返しの回数,0と定義すると、無限ループになり、永久に演奏を繰り返す。
 
 // 楽譜データ
 // TITLE:国歌 「君が代」

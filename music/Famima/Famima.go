@@ -1,13 +1,12 @@
 package main
 
-import "fmt"
-
-func Title() {
-	fmt.Printf("Family Mart entrance sound")
+func getTitle() string {
+	return Title
 }
 
-var Song_BPM float64 = 84.0 // 楽曲のテンポ
-var Repetitions int = 3     // 繰返しの回数,0と定義すると、無限ループになり、永久に演奏を繰り返す。
+const Title string = "Family Mart entrance sound" // 楽曲名
+var Song_BPM float64 = 84.0                       // 楽曲のテンポ
+var Repetitions int = 3                           // 繰返しの回数,0と定義すると、無限ループになり、永久に演奏を繰り返す。
 
 // TITLE:ファミマ入店音
 // コンビニ入店時チャイム(お客様を歓迎しながら)

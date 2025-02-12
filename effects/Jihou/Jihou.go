@@ -1,13 +1,12 @@
 package main
 
-import "fmt"
-
-func Title() {
-	fmt.Printf("Time signal")
+func getTitle() string {
+	return Title
 }
 
-var Song_BPM float64 = 120.0 // 楽曲のテンポ
-var Repetitions int = 5      // 繰返しの回数,0と定義すると、無限ループになり、永久に演奏を繰り返す。
+const Title string = "Time signal" // 効果音名
+var Song_BPM float64 = 120.0       // 楽曲のテンポ
+var Repetitions int = 5            // 繰返しの回数,0と定義すると、無限ループになり、永久に演奏を繰り返す。
 
 // TITLE:時報
 // NHKラジオの時報の音階は、「プ」が440Hz、「ピーン」が880Hz
