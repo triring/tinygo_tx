@@ -1,13 +1,12 @@
 package main
 
-import "fmt"
-
-func Title() {
-	fmt.Printf("Do Re Mi Fa So Ra Si Do")
+func getTitle() string {
+	return Title
 }
 
-var Song_BPM float64 = 120.0 // 楽曲のテンポ
-var Repetitions int = 5      // 繰返しの回数,0と定義すると、無限ループになり、永久に演奏を繰り返す。
+const Title string = "Do Re Mi Fa So Ra Si Do" // 楽曲名
+var Song_BPM float64 = 120.0                   // 楽曲のテンポ
+var Repetitions int = 5                        // 繰返しの回数,0と定義すると、無限ループになり、永久に演奏を繰り返す。
 
 // TITLE:ドレミファソラシド
 // デモ用の楽譜データ

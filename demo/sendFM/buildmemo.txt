@@ -1,0 +1,6 @@
+> tinygo build -o Ievan_polkka.uf2 -target=pico -size short .
+   code    data     bss |   flash     ram
+  63132    1540    3184 |   64672    4724
+  
+  
+> tinygo build -o CheCheKoolay.uf2 -target=pico -size short .
