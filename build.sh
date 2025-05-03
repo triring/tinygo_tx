@@ -1,4 +1,6 @@
 # go mod init tinygo_tx
+# go get tinygo.org/x/drivers
+
 mkdir uf2
 mkdir uf2/demo
 mkdir uf2/music
@@ -18,6 +20,7 @@ tinygo build -o uf2/music/Ode_to_Joy.uf2          -target=pico -size short ./mus
 tinygo build -o uf2/music/ShortShorts.uf2         -target=pico -size short ./music/ShortShorts
 tinygo build -o uf2/music/WelcomeJapariPark.uf2   -target=pico -size short ./music/WelcomeJapariPark
 
+tinygo build -o uf2/effects/Beacon.uf2            -target=pico -size short ./effects/Beacon
 tinygo build -o uf2/effects/CTUringtone.uf2       -target=pico -size short ./effects/CTUringtone
 tinygo build -o uf2/effects/Jihou.uf2             -target=pico -size short ./effects/Jihou
 tinygo build -o uf2/effects/Kingyo.uf2            -target=pico -size short ./effects/Kingyo
