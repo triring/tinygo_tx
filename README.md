@@ -1,6 +1,4 @@
-<<<<<<< HEAD
 # tinygo tx  
-
 
 Raspberry Pi Pico を小さな放送局にするプログラムです。  
 [Tinygo](https://tinygo.org)で、Raspberry Pi Pico のPWMを制御し、AMやFMラジオで受信できる微弱電波を生成して、音楽や報知音等を送信します。  
@@ -108,43 +106,46 @@ tinygoの開発環境がきちんと構築されていれば、特に用意す�
 
 ```bash
         > tree /a /f effects
+        +---Beacon\
+        |       小惑星探査機「はやぶさ」のビーコン音
         +---CTUringtone
-        |       main.go
+        |       アメリカ合衆国の連続ドラマ 24 -TWENTY FOUR- の舞台となった政府機関CTU内で使われていた着信音
         +---Jihou
-        |       main.go
+        |       時報
         +---Kingyo
-        |       main.go
+        |       物売りの売り声	金魚屋さん
         +---PiPo
-        |       main.go
+        |       往年の名機 PC-9801VM11の起動音"ピポッ"を再現
         +---Ramen
-        |       main.go
+        |       屋台のラーメン屋さんが客寄せにチャルメラで吹いていた曲
         +---Saodake
-        |       main.go
+        |       物売りの売り声 竿竹屋さん
         +---ThiroriSound
-        |       main.go
+        |       某大手ハンバーガーチェーンで、ポテトが揚がったときに店内で流れるタイマー音
         +---Ultraman
-        |       main.go
+        |       ウルトラマンのカラータイマーの音
         \---WestminsterChimes
-                main.go
-
+                ウェストミンスター宮殿の時計塔ビッグ・ベンで使われている時鐘のメロディ
 
         > tree /a /f music
          +---CheCheKoolay
-        |       main.go
+        |       チェッチェッコリ。アフリカ、ガーナ民謡
         +---Famima
-        |       Famima.go
+        |       ファミマ入店音
         +---Ievan_polkka
-        |       main.go
+        |       イエヴァのポルカ。ボーカロイド 初音ミクでよく使われる曲
         +---KimiGaYo
-        |       main.go
+        |       国歌 「君が代」
         +---KnightRider
-        |       main.go
+        |       ナイトライダー（原題：Knight Rider）アメリカの特撮テレビドラマの音楽
+        +---Le_temps_des_cerises
+        |       さくらんぼの実る頃 宮崎監督のアニメ映画 紅の豚 の劇中歌のシャンソン
         +---Ode_to_Joy
-        |       main.go
+        |       歓喜の歌:ベートーベン作曲交響曲第9番のフィナーレを飾る独唱および合唱の部分
         +---ShortShorts
-        |       main.go
-        \---WelcomeJapariPark
-                main.go
+        |       who wears short shorts テレビ朝日「タモリ倶楽部」のテーマソング
+        \---WelcomeJapariPark	
+                ようこそジャパリパークへ
 
 ```
 
@@ -380,7 +381,6 @@ Copyright (c) 2024 Akio MIWA @triring
 このファイルは、<akio@triring.net> が書きました。あなたがこの条文を載せている限り、あなたはソフトウェアをどのようにでも扱うことができます。
 もし、いつか私達が出会った時、あなたがこのソフトに価値があると感じたなら、見返りとして私にビールを奢ることができます。  
 Copyright (c) 2025 Akio MIWA @triring  
-=======
 # tinygo tx  
 
 
@@ -762,4 +762,3 @@ Copyright (c) 2024 Akio MIWA @triring
 このファイルは、<akio@triring.net> が書きました。あなたがこの条文を載せている限り、あなたはソフトウェアをどのようにでも扱うことができます。
 もし、いつか私達が出会った時、あなたがこのソフトに価値があると感じたなら、見返りとして私にビールを奢ることができます。  
 Copyright (c) 2025 Akio MIWA @triring  
->>>>>>> origin/main
