@@ -27,6 +27,7 @@ tinygo build -o uf2/effects/Jihou.uf2             -target=pico -size short ./eff
 tinygo build -o uf2/effects/Kingyo.uf2            -target=pico -size short ./effects/Kingyo
 tinygo build -o uf2/effects/PiPo.uf2              -target=pico -size short ./effects/PiPo
 tinygo build -o uf2/effects/Ramen.uf2             -target=pico -size short ./effects/Ramen
+tinygo build -o uf2/effects/ReMiDoDo_So.uf2       -target=pico -size short ./effects/ReMiDoDo_So
 tinygo build -o uf2/effects/Saodake.uf2           -target=pico -size short ./effects/Saodake
 tinygo build -o uf2/effects/ThiroriSound.uf2      -target=pico -size short ./effects/ThiroriSound
 tinygo build -o uf2/effects/Ultraman.uf2          -target=pico -size short ./effects/Ultraman
@@ -47,6 +48,7 @@ tinygo build -o uf2/effects/WestminsterChimes.uf2 -target=pico -size short ./eff
 # copy ./demo/sendFM/main.go ./effects/Kingyo/
 # copy ./demo/sendFM/main.go ./effects/PiPo/
 # copy ./demo/sendFM/main.go ./effects/Ramen/
+# copy ./demo/sendFM/main.go ./effects/ReMiDoDo_So/
 # copy ./demo/sendFM/main.go ./effects/Saodake/
 # copy ./demo/sendFM/main.go ./effects/ThiroriSound/
 # copy ./demo/sendFM/main.go ./effects/Ultraman/
