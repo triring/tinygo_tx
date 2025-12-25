@@ -140,8 +140,6 @@ tinygoの開発環境がきちんと構築されていれば、特に用意す�
         |       国歌 「君が代」
         +---KnightRider
         |       ナイトライダー（原題：Knight Rider）アメリカの特撮テレビドラマの音楽
-        +---JingleBells
-        |       Jingle Bells クリスマスソングのジングルベルです。
         +---Le_temps_des_cerises
         |       さくらんぼの実る頃 宮崎監督のアニメ映画 紅の豚 の劇中歌のシャンソン
         +---Ode_to_Joy
