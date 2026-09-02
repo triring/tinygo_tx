@@ -1,5 +1,8 @@
 # tinygo tx  
 
+<!-- pandoc -f markdown -t html5 README.md -s --embed-resources --standalone -c github-markdown.css -o README.html
+ -->
+
 Raspberry Pi Pico を小さな放送局にするプログラムです。  
 [Tinygo](https://tinygo.org)で、Raspberry Pi Pico のPWMを制御し、AMやFMラジオで受信できる微弱電波を生成して、音楽や報知音等を送信します。  
 10cm程度のジャンパー線があればOK、ハードの改造は不要です。  
@@ -76,7 +79,7 @@ tinygoの開発環境がきちんと構築されていれば、特に用意す�
 写真はRP2040チップを搭載したマイコンボード[RP2040-Zero](https://www.waveshare.com/wiki/RP2040-Zero)で作られたマイクロパッド[zero-kb02](https://github.com/sago35/tinygo_keeb_workshop_2024/blob/main/buildguide.md)の拡張ポートのGPIO15に差し込まれた
 アンテナ用のジャンパーワイヤー  
 
-3. ./uf2/demoディレクトリ内にある 任意のuf2ファイルをRaspberry Pi Picoに書き込んで下さい。  
+2. ./uf2/demoディレクトリ内にある 任意のuf2ファイルをRaspberry Pi Picoに書き込んで下さい。  
 
 * AM????HKz.uf2は、AMラジオ用です。  
 * FM????MKz.uf2は、FMラジオ用です。  
@@ -266,9 +269,9 @@ AM放送の周波数帯では、それぞれの放送局に割り当てられる
 
 ### 注意事項  
 
----
+----
 > もし、使用する出力周波数が**地元放送局の周波数と被る**ようであれば、必ず**修正してから使用**して下さい。  
----
+----
 
 ## 新しい楽曲の作り方  
 
@@ -647,9 +650,9 @@ AM放送の周波数帯では、それぞれの放送局に割り当てられる
 
 ### 注意事項  
 
----
+----
 > もし、使用する出力周波数が**地元放送局の周波数と被る**ようであれば、必ず**修正してから使用**して下さい。  
----
+----
 
 ## 新しい楽曲の作り方  
 

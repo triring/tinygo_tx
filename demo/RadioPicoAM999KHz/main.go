@@ -1,4 +1,6 @@
 // tinygo build -o RadioPicoAM999KHz.uf2 -target=pico -size short .
+// tinygo flash -target=pico -size short .
+
 package main
 
 import (

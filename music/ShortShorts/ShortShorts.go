@@ -4,13 +4,15 @@ func getTitle() string {
 	return Title
 }
 
-const Title string = "Kwho wears short shorts" // 楽曲名
+const Title string = "Short Shorts" // 楽曲名
 var Song_BPM float64 = 252.0                   // 楽曲のテンポ
 var Repetitions int = 2                        // 繰返しの回数,0と定義すると、無限ループになり、永久に演奏を繰り返す。
 
 // 楽譜データ
 // TITLE:who wears short shorts
 // テレビ朝日「タモリ倶楽部」のテーマソング
+// 歌詞は「Who wears short shorts? 誰がはくの？」という男性の問いかけに、
+// 「We wear short shorts 私たちがはくのよ！」と女性が答えるシンプルな内容となっている。
 
 var Notes = []Note{
 	{R, L1}, // 何故か、最初にノイズが再生されるので、ここに、ダミーの休符を置く。
