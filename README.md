@@ -76,8 +76,7 @@ tinygoの開発環境がきちんと構築されていれば、特に用意す�
 
 ![antenna](photo/DSCN9444_800x600.jpg "antenna")
 
-写真はRP2040チップを搭載したマイコンボード[RP2040-Zero](https://www.waveshare.com/wiki/RP2040-Zero)で作られたマイクロパッド[zero-kb02](https://github.com/sago35/tinygo_keeb_workshop_2024/blob/main/buildguide.md)の拡張ポートのGPIO15に差し込まれた
-アンテナ用のジャンパーワイヤー  
+写真はRP2040チップを搭載したマイコンボード[RP2040-Zero](https://www.waveshare.com/wiki/RP2040-Zero)で作られたマイクロパッド[zero-kb02](https://github.com/sago35/tinygo_keeb_workshop_2024/blob/main/buildguide.md)の拡張ポートのGPIO15に差し込まれたアンテナ用のジャンパーワイヤー  
 
 2. ./uf2/demoディレクトリ内にある 任意のuf2ファイルをRaspberry Pi Picoに書き込んで下さい。  
 
